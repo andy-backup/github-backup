@@ -1,0 +1,11 @@
+version: '2'
+services:
+  backup:
+    build: ./
+    restart: always
+    volumes:
+      - ./ssh-key:/root/.ssh
+      - ./start.sh:/data/start.sh
+      - ./cron.sh:/data/cron.sh
+      - /home/andy/fibos-node/data/snapshots:/data/local
+    command: ['sh', '/data/start.sh']
