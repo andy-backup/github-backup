@@ -8,5 +8,5 @@ services:
       - /home/andy/.ssh/id_rsa.pub:/data/.ssh/id_rsa.pub
       - ./start.sh:/data/start.sh
       - ./cron.sh:/data/cron.sh
-      - /home/andy/fibos-node/data/snapshots:/data/local
+      - /home/andy/blockchain/fibos-node/data/snapshots:/data/local
     command: ['sh', '/data/start.sh']
