@@ -7,4 +7,6 @@ git config --global user.name "Mingfun Wong"
 #     min   hour    day     month   weekday command
 echo "0     *       *       *       *       /data/cron.sh" >> /var/spool/cron/crontabs/root
 
+./cron.sh
+
 crond -f
