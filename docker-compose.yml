@@ -4,7 +4,8 @@ services:
     build: ./
     restart: always
     volumes:
-      - ./ssh-key/id_rsa:/root/.ssh/id_rsa
+      - /home/andy/.ssh/id_rsa:/data/.ssh/id_rsa
+      - /home/andy/.ssh/id_rsa.pub:/data/.ssh/id_rsa.pub
       - ./start.sh:/data/start.sh
       - ./cron.sh:/data/cron.sh
       - /home/andy/fibos-node/data/snapshots:/data/local
