@@ -3,10 +3,12 @@ services:
   backup:
     build: ./
     restart: always
+    env_file:
+      - ./.env
     volumes:
-      - /home/andy/.ssh/id_rsa:/data/.ssh/id_rsa
-      - /home/andy/.ssh/id_rsa.pub:/data/.ssh/id_rsa.pub
+      - ${SSH_DIR}/id_rsa:/data/.ssh/id_rsa
+      - ${SSH_DIR}/id_rsa.pub:/data/.ssh/id_rsa.pub
       - ./start.sh:/data/start.sh
       - ./cron.sh:/data/cron.sh
-      - /home/andy/blockchain/fibos-node/data/snapshots:/data/local
+      - ${LOCAL_SNAPSHOT_DIR}:/data/local
     command: ['sh', '/data/start.sh']
