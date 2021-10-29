@@ -17,7 +17,7 @@ git branch -M master
 
 echo "$CRON /data/cron.sh" >> /var/spool/cron/crontabs/root
 
-sleep 1m
+sleep 10m
 
 /data/cron.sh
 
