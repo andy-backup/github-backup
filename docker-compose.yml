@@ -1,4 +1,3 @@
-version: '2'
 services:
   backup:
     build: ./
@@ -8,7 +7,4 @@ services:
     volumes:
       - ${SSH_DIR}/id_rsa:/data/.ssh/id_rsa
       - ${SSH_DIR}/id_rsa.pub:/data/.ssh/id_rsa.pub
-      - ./start.sh:/data/start.sh
-      - ./cron.sh:/data/cron.sh
       - ${LOCAL_SNAPSHOT_DIR}:/data/local
-    command: ['sh', '/data/start.sh']

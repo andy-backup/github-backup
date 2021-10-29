@@ -2,7 +2,7 @@
 
 date
 wget $SNAPSHOT_URL -O /data/snapshot.log
-SNAPSHOT_FOLDER=/data/local
+SNAPSHOT_FOLDER=/data/local/snapshots
 SNAPSHOT_FILE=$(ls $SNAPSHOT_FOLDER/*.bin -t | head -1)
 cp $SNAPSHOT_FILE /data/github/snapshot.bin
 cd /data/github
