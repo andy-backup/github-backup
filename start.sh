@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-mkdir /root/.ssh
+if [ ! -d /root/.ssh ];then
+  mkdir /root/.ssh
+fi
+
 cp /data/.ssh/id_rsa /root/.ssh
 cp /data/.ssh/id_rsa.pub /root/.ssh
 chmod 400 /root/.ssh/id_rsa /root/.ssh/id_rsa.pub
@@ -16,7 +19,7 @@ mkdir ./github
 cd ./github
 git init
 git remote add origin $GITHUB
-echo test > test
+echo init > init
 git add .
 git commit -am "update"
 rm test
