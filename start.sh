@@ -22,7 +22,7 @@ git remote add origin $GITHUB
 echo init > init
 git add .
 git commit -am "update"
-rm test
+rm init
 
 echo "$CRON /data/cron.sh" >> /var/spool/cron/crontabs/root
 
