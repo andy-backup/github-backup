@@ -15,16 +15,18 @@ git config --global user.email $GIT_USER_EMAIL
 git config --global user.name $GIT_USER_NAME
 git config --global init.defaultBranch master
 
-mkdir ./github
-cd ./github
-git init
-git remote add origin $GITHUB
-echo init > init
-git add .
-git commit -am "update"
-rm init
+if [ ! -d ./github ];then
+  mkdir ./github
+  cd ./github
+  git init
+  git remote add origin $GITHUB
+  echo init > init
+  git add .
+  git commit -am "update"
+  rm init
 
-echo "$CRON /data/cron.sh" >> /var/spool/cron/crontabs/root
+  echo "$CRON /data/cron.sh" >> /var/spool/cron/crontabs/root
+fi
 
 sleep 10m
 
