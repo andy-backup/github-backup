@@ -30,6 +30,6 @@ fi
 
 sleep 10m
 
-/data/cron.sh
+sh /data/cron.sh
 
 crond -f
