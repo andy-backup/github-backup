@@ -25,7 +25,7 @@ if [ ! -d ./github ];then
   git commit -am "update"
   rm init
 
-  echo "$CRON /data/cron.sh" >> /var/spool/cron/crontabs/root
+  echo "$CRON sh /data/cron.sh" >> /var/spool/cron/crontabs/root
 fi
 
 sleep 10m
