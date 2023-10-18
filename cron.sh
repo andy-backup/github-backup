@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-date
+echo `date`"|start"
+
 wget $SNAPSHOT_URL -O /data/snapshot.log
 SNAPSHOT_FOLDER=/data/local/snapshots
 SNAPSHOT_FILE=$(ls $SNAPSHOT_FOLDER/*.bin -t | head -1)
@@ -11,16 +12,8 @@ if [ ! -f $SNAPSHOT_FILE ];then
   exit 1
 fi
 
-cd /data/github
-
-cp $SNAPSHOT_FILE /data/github/snapshot.bin
-
-git checkout --orphan latest_branch
-git add .
-git commit -am "update"
-git branch -D master
-git branch -m master
-git push -f origin master
-
+curl -X PUT $UPLOAD_URL/$(date +%Y%m%d).bin -i --header "X-Custom-Auth-Key: $AUTH_KEY_SECRET" -F "data=@$SNAPSHOT_FILE"
+sleep 1m
+curl -X PUT $UPLOAD_URL/latest.bin -i --header "X-Custom-Auth-Key: $AUTH_KEY_SECRET" -F "data=@$SNAPSHOT_FILE"
 rm -f $SNAPSHOT_FOLDER/*
-echo 'done.'
+echo `date`"|end"

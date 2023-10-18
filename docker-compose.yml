@@ -3,6 +3,4 @@ services:
     build: ./
     restart: always
     volumes:
-      - ${SSH_DIR}/id_rsa:/data/.ssh/id_rsa
-      - ${SSH_DIR}/id_rsa.pub:/data/.ssh/id_rsa.pub
       - ${LOCAL_SNAPSHOT_DIR}:/data/local
