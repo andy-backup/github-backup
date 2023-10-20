@@ -18,6 +18,7 @@ if [ $TARGET = "latest" ];then
   UPLOAD_FILE_URL=$UPLOAD_URL/latest.bin
 fi
 
+echo `date`"|"$UPLOAD_FILE_URL
 curl -X PUT $UPLOAD_FILE_URL -i -k --header "X-Custom-Auth-Key: $AUTH_KEY_SECRET" --data-binary "@$SNAPSHOT_FILE"
 
 rm -f $SNAPSHOT_FOLDER/*
