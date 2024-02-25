@@ -24,7 +24,7 @@ fi
 echo "$(date) | $UPLOAD_FILE_URL"
 
 # Retry loop
-for ((i=1; i<=$RETRY_COUNT; i++)); do
+for ((i=1; i<=RETRY_COUNT; i++)); do
   echo "$(date) Attempt $i"
   if curl -X PUT $UPLOAD_FILE_URL -i -k --header "X-Custom-Auth-Key: $AUTH_KEY_SECRET" --data-binary "@$SNAPSHOT_FILE"; then
     echo "$(date) Upload successful"
