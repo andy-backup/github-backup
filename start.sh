@@ -7,6 +7,6 @@ echo "$CRON_LATEST bash /data/cron.sh latest" >> /var/spool/cron/crontabs/root
 
 sleep 10m
 
-sh /data/cron.sh latest
+bash /data/cron.sh latest
 
 crond -f
