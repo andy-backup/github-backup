@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Version 2.0.8"
+echo "Version 2.0.9"
 echo "$(date) Start"
 
 RETRY_COUNT=5
