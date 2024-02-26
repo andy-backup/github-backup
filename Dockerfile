@@ -2,7 +2,7 @@ FROM alpine:latest
 
 WORKDIR /data
 
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl bash
 
 COPY start.sh .
 COPY cron.sh .
