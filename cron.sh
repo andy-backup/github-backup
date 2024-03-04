@@ -2,7 +2,7 @@
 set -e
 
 echo "Version 2.0.9"
-echo "$(date) Start"
+echo "$(date) Start $TARGET"
 
 RETRY_COUNT=5
 RETRY_DELAY=5
