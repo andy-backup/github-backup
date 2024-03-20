@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Version 2.0.10"
-echo "$(date) Start $TARGET"
+echo "Version 2.0.11"
 
 RETRY_COUNT=5
 RETRY_DELAY=5
@@ -12,6 +11,8 @@ SNAPSHOT_FOLDER=/data/local/snapshots
 SNAPSHOT_FILE=$(ls $SNAPSHOT_FOLDER/*.bin -t | head -1)
 TARGET=$1
 UPLOAD_FILE_URL=$UPLOAD_URL/$(date +%Y%m%d).bin
+
+echo "$(date) Start $TARGET"
 
 if [ ! -f $SNAPSHOT_FILE ]; then
   echo "SNAPSHOT_FILE Doesn't exist"
